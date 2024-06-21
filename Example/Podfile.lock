@@ -1,0 +1,23 @@
+PODS:
+  - PageState (0.1.0)
+  - SnapKit (5.7.1)
+
+DEPENDENCIES:
+  - PageState (from `../`)
+  - SnapKit (~> 5.7.0)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  PageState:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PageState: e8f10a53cd652d1977a6ee7c971ce37d5d1f4c4d
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+
+PODFILE CHECKSUM: 4f7c8b286ae40f04abd204b1a147960a16f88d63
+
+COCOAPODS: 1.13.0

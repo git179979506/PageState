@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "default_no_signal.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +19,66 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8wI-6S-sgj">
+                                <rect key="frame" x="70" y="41" width="235" height="32"/>
+                                <segments>
+                                    <segment title="加载中"/>
+                                    <segment title="无网络"/>
+                                    <segment title="空数据"/>
+                                    <segment title="有数据"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onTapSegmentedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="TnA-Mx-RrE"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyf-9w-Amk">
+                                <rect key="frame" x="16" y="102" width="343" height="549"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rVe-D6-s23">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="549"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="vXZ-lx-hvc" id="cV5-0n-K8A"/>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="hVf-pa-NP5"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rVe-D6-s23" secondAttribute="bottom" id="KAO-CO-ZDh"/>
+                                    <constraint firstItem="rVe-D6-s23" firstAttribute="leading" secondItem="hyf-9w-Amk" secondAttribute="leading" id="Kr2-cg-jBh"/>
+                                    <constraint firstAttribute="trailing" secondItem="rVe-D6-s23" secondAttribute="trailing" id="Zo6-cm-o7R"/>
+                                    <constraint firstItem="rVe-D6-s23" firstAttribute="top" secondItem="hyf-9w-Amk" secondAttribute="top" id="lBQ-8G-JWf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="8wI-6S-sgj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="BFc-nJ-RkL"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="hyf-9w-Amk" secondAttribute="bottom" constant="16" id="EBz-N2-wpF"/>
+                            <constraint firstItem="hyf-9w-Amk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="H4s-Pt-JlT"/>
+                            <constraint firstAttribute="trailing" secondItem="hyf-9w-Amk" secondAttribute="trailing" constant="16" id="bkh-Re-WaL"/>
+                            <constraint firstItem="hyf-9w-Amk" firstAttribute="top" secondItem="8wI-6S-sgj" secondAttribute="bottom" constant="30" id="rG6-S4-fSt"/>
+                            <constraint firstItem="8wI-6S-sgj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="21" id="vHz-sG-ORw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="hyf-9w-Amk" id="8Xm-Bn-S9N"/>
+                        <outlet property="tableView" destination="rVe-D6-s23" id="1ns-NT-Svt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-26.399999999999999" y="-36.431784107946029"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
