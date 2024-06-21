@@ -13,7 +13,7 @@ import PageState
 // 为系统组件快速实现扩展，不实现的设置项使用默认值
 // 不建议这么写
 // 1. 会污染UILabel的命名空间
-// 2. 无法PageStateItem设置项无法重写为存储属性，无法在外部修改
+// 2. PageStateItem设置项无法重写为存储属性，无法在外部修改
 //extension UILabel: PageStateItem { 
 //    // 布局改为居中，UILabel可以自约束宽高
 //    public var layoutStyle: PageStateLayoutStyle {

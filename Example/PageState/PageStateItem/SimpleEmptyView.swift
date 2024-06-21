@@ -23,10 +23,9 @@ class SimpleEmptyView: BaseView, PageStateItem {
         }
     }
     
-    public static func view(_ type: EmptyType) -> SimpleEmptyView {
-        let view = SimpleEmptyView()
-        view.updateContent(type)
-        return view
+    public convenience init(_ type: EmptyType) {
+        self.init()
+        updateContent(type)
     }
     
     public func updateContent(_ type: EmptyType) {
@@ -88,8 +87,11 @@ class SimpleEmptyView: BaseView, PageStateItem {
     
     lazy var imageView = UIImageView()
     
-    // MARK: PageStateItem
-    var view: UIView { return self }
+    // MARK: - PageStateItem
+    // 这一句可以不写，不写就是返回self
+//    var view: UIView { return self }
+    
+    // 用存储属性实现，外部可修改
     var layoutStyle: PageStateLayoutStyle = .full(edgeInset: .zero)
     
     var fadeInOnDisplay: Bool = true

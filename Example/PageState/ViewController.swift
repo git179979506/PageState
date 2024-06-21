@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         case 0: // 加载中
             tableView.ps.item = PSLabelItem.empty(text: "加载中...")
         case 1: // 无网络
-            let emptyView = SimpleEmptyView.view(.networkError)
+            let emptyView = SimpleEmptyView(.networkError)
             // 点击刷新
             emptyView.onTapViewClosure = { [weak sender, weak tableView] in
                 sender?.selectedSegmentIndex = 0
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             }
             tableView.ps.item = emptyView
         case 2: // 空数据
-            tableView.ps.item = SimpleEmptyView.view(.noContent)
+            tableView.ps.item = SimpleEmptyView(.noContent)
         default: // 有数据
             cellCount = 20
             
