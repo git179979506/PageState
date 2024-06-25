@@ -43,10 +43,13 @@ pod 'PageState'
 
 // MARK: - 子类化
 class PSLabelItem: UILabel, PageStateItem {
+    // 中心偏移量
+    var layoutOffset: CGPoint = .zero
+
     // 布局改为居中，UILabel可以自约束宽高
-    // 时候用计算属性，不让外部修改
+    // 用计算属性，不让外部修改布局方式
     public var layoutStyle: PageStateLayoutStyle {
-        return .center(offset: .zero)
+        return .center(offset: layoutOffset)
     }
     
     // 重写为存储属性，外部可修改
@@ -67,6 +70,17 @@ class PSLabelItem: UILabel, PageStateItem {
 ```swift
 // 加载中
 tableView.ps.item = PSLabelItem.empty(text: "加载中...")
+
+// 使用 coning 方法设置属性
+tableView.ps.item = PSLabelItem.empty(text: "加载中...")
+    .config { item in
+        item.layoutOffset = CGPoint(x: 0, y: -150)
+    }
+
+作者：现在立刻马上
+链接：https://juejin.cn/post/7382891667672956978
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 // 移除状态视图
 tableView.ps.item = nil
