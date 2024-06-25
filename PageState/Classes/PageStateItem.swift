@@ -42,6 +42,11 @@ extension PageStateItem {
     public var fadeInOnDisplay: Bool { return true }
     public var isTouchAllowed: Bool { return false }
     public var isScrollAllowed: Bool { return false }
+    
+    public func config(callback: (Self) -> Void) -> Self {
+        callback(self)
+        return self
+    }
 }
 
 extension PageStateItem where Self: UIView {
