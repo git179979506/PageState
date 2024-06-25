@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PageState'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = '轻松实现页面或组件数据状态管理'
 
   s.description      = <<-DESC
