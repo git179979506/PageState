@@ -77,11 +77,6 @@ tableView.ps.item = PSLabelItem.empty(text: "加载中...")
         item.layoutOffset = CGPoint(x: 0, y: -150)
     }
 
-作者：现在立刻马上
-链接：https://juejin.cn/post/7382891667672956978
-来源：稀土掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 // 移除状态视图
 tableView.ps.item = nil
 ```
